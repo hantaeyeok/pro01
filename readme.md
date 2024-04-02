@@ -60,7 +60,7 @@
 
 #### 4-1.3. 서비스흐름 설계(Service Flow Design)
 usecase
-![유스케이스](./pro01_png/usecase.png)
+![유스케이스](./pro01_png/usecase01.png)
 
 #### 4-1.4 서비스 시나리오 (Service User Scenario)
 
@@ -98,7 +98,7 @@ usecase
 
 
 #### 4-2.1. 개념적 설계
-![개념적모델링](./pro01_png/usecase01.png)
+![개념적모델링](./pro01_png/pro01infoerd.png)
 
 #### 4-2.2 논리적 설계
 ![논리적모델링](./pro01_png/pro01class.PNG)
