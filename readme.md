@@ -2,9 +2,10 @@
 ---------------------------------------------------------------------
 ## 1. 프로젝트 개요(Project Outline) 
 
-    예시임 예시임 서울시 중구 명동의 유래와 동네의 특징, 그리고 곳곳에 산재되어 있는 각 종 기관과 명동에 위치한 빌딩, 맛집, 관광처를 소개하고, 명동의 소식을 전달하며, 커뮤니티를 이루고, 정보를 공유할 목적으로 개발하게 되었다.
+    관광객이 꾸준히 방문하며, 이에 따라 관광명소, 쇼핑, 숙박 업소가 모여 있는 명동을 소개하기 위한 웹 애플리케이션을 자바 기반의 웹 애플리케이션으로 개발하게 되었다.
 
-    예시임 예시임For the purpose of introducing the origins of Myeong-dong, Jung-gu, Seoul, the characteristics of the neighborhood, various institutions scattered throughout the area, buildings, restaurants, and tourist attractions located in Myeong-dong, delivering news about Myeong-dong, forming a community, and sharing information. was developed.
+    
+    As tourists continue to visit, a Java-based web application was developed to introduce Myeong-dong, where tourist attractions, shopping, and accommodations are located.
 
 <br><br><br>
 
@@ -12,7 +13,8 @@
 
      서울시 중구 명동의 유래와 동네의 특징, 그리고 곳곳에 산재되어 있는 각 종 기관과 명동에 위치한 빌딩, 맛집, 관광처를 소개하고, 명동의 소식을 전달하며, 커뮤니티를 이루고, 정보를 공유할 목적으로 개발하게 되었다.
 
-    For the purpose of introducing the origins of Myeong-dong, Jung-gu, Seoul, the characteristics of the neighborhood, various institutions scattered throughout the area, buildings, restaurants, and tourist attractions located in Myeong-dong, delivering news about Myeong-dong, forming a community, and sharing information. was developed.
+    
+    For the purpose of introducing and conveying the characteristics of Myeong-dong, Jung-gu, Seoul, its origin and proximity, and the various institutions scattered everywhere, restaurants and tourist attractions belonging to Myeong-dong, delivering news about Myeong-dong, distinguishing communities, and sharing information. Development is possible.
 
 <br><br><br>
 
@@ -96,7 +98,7 @@ usecase
 
 
 #### 4-2.1. 개념적 설계
-![개념적모델링](./pro01_png/pro01infoerd.png)
+![개념적모델링](./pro01_png/usecase01.png)
 
 #### 4-2.2 논리적 설계
 ![논리적모델링](./pro01_png/pro01class.PNG)
