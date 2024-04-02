@@ -1,14 +1,13 @@
 package org.myeongdong.dto;
 
-
-public class Traffic {
+public class Straffic {
 	private String tno;
 	private String ttype;
 	private String no;
 	private String route;
 	private String coment;
-	public Traffic() {}
-	public Traffic(String tno, String ttype, String no, String route, String coment) {
+	public Straffic() {}
+	public Straffic(String tno, String ttype, String no, String route, String coment) {
 		super();
 		this.tno = tno;
 		this.ttype = ttype;
@@ -48,9 +47,7 @@ public class Traffic {
 	}
 	@Override
 	public String toString() {
-		return "Traffic [tno=" + tno + ", ttype=" + ttype + ", no=" + no + ", route=" + route + ", coment=" + coment
+		return "Straffic [tno=" + tno + ", ttype=" + ttype + ", no=" + no + ", route=" + route + ", coment=" + coment
 				+ "]";
 	}
-	
-	
 }
