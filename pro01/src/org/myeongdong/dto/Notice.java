@@ -5,10 +5,10 @@ public class Notice {
 	private String title;
 	private String content;
 	private String resdate;
-	private String visited;
+	private int visited;
 	
 	public Notice() {}
-	public Notice(int no, String title, String content, String resdate, String visited) {
+	public Notice(int no, String title, String content, String resdate, int visited) {
 		super();
 		this.no = no;
 		this.title = title;
@@ -40,10 +40,10 @@ public class Notice {
 	public void setResdate(String resdate) {
 		this.resdate = resdate;
 	}
-	public String getVisited() {
+	public int getVisited() {
 		return visited;
 	}
-	public void setVisited(String visited) {
+	public void setVisited(int visited) {
 		this.visited = visited;
 	}
 	@Override

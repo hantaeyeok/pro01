@@ -16,7 +16,8 @@ create sequence dseq start with 1 increment by 1;
 
 -- notice
 create table notice (no int primary key, title varchar(50) not null, content varchar(4000), resdate TIMESTAMP default sysdate, visited int);
-
+create sequence nseq start with 1 increment by 1;
+select * from notice;
 -- member
 create table member(id varchar(12) primary key, pw varchar(12) not null, name varchar(20) not null, tel varchar(20) not null);
 
