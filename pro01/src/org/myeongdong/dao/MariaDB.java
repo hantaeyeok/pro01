@@ -14,7 +14,8 @@ public class MariaDB implements SqlLang {
 	
 	Connection con = null;
 	
-	public Connection Connect() {
+	@Override
+	public Connection connect() {
 		try {
 			Class.forName(DRIVER);
 			try {
@@ -28,6 +29,7 @@ public class MariaDB implements SqlLang {
 		return con;
 	}
 	
+	@Override
 	public void close(Connection con, PreparedStatement pstmt) {
 		if(pstmt!=null) {
 			try {
@@ -44,6 +46,8 @@ public class MariaDB implements SqlLang {
 			}
 		}
 	}
+	
+	@Override
 	public void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
 		if(rs!=null) {
 			try {

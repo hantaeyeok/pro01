@@ -3,6 +3,7 @@ package org.myeongdong.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.mysql.cj.protocol.Resultset;
@@ -15,58 +16,62 @@ public class MySQLDB implements SqlLang {
 	
 	Connection  con = null;
 	
-	public Connection Connect() {
+	@Override
+	public Connection connect() {
 		try {
 			Class.forName(DRIVER);
-		} catch (Exception e1) {
-				e1.printStackTrace();
-		}
-		try {
-			con = DriverManager.getConnection(URL,USERID,USERPW);
-		} catch (SQLException e) {
+			try {
+				con = DriverManager.getConnection(URL, USERID, USERPW);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} 
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return con;
 	}
 	
+	@Override
 	public void close(Connection con, PreparedStatement pstmt) {
-		if(pstmt != null) {
+		if(pstmt!=null) {
 			try {
 				pstmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		if(con != null) {
+		if(con!=null) {
 			try {
-				pstmt.close();
+				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 	}
 	
-	public void close(Connection con, PreparedStatement pstmt, Resultset rs) {
-		if(rs != null) {
+	@Override
+	public void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
+		if(rs!=null) {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if(pstmt!=null) {
 			try {
 				pstmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		if(pstmt != null) {
+		if(con!=null) {
 			try {
-				pstmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		if(con != null) {
-			try {
-				pstmt.close();
+				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 	}
 }
+
