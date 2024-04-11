@@ -1,22 +1,21 @@
-package org.myeongdong.ctrl;
+package org.myeongdong.ctrl.member;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import org.myeongdong.dao.NoticeDAO;
-import org.myeongdong.dto.Notice;
+import org.myeongdong.dao.MemberDAO;
 
-@WebServlet("/GetNotice.do")
-public class GetNoticeCtrl extends HttpServlet {
+@WebServlet("/DelMember.do")
+public class DelMemberCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public GetNoticeCtrl() {
+
+    public DelMemberCtrl() {
         super();
     }
 
@@ -24,16 +23,18 @@ public class GetNoticeCtrl extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-
-		int no = Integer.parseInt(request.getParameter("no"));
 		
-		NoticeDAO dao = new NoticeDAO();
-		Notice noti = dao.getNotice(no);
+		String id = request.getParameter("id");
+		MemberDAO dao = new MemberDAO();
+		int cnt = dao.memberOut(id);
 		
-		request.setAttribute("noti", noti);
-		RequestDispatcher view = request.getRequestDispatcher("/notice/getNotice.jsp");
-		view.forward(request, response);
+		HttpSession session = request.getSession(); 
 		
+		if(cnt>0) {
+			session.invalidate();
+			response.sendRedirect("/pro01");
+		} else {
+			response.sendRedirect("/EditMember.do?id="+id);
+		}
 	}
-
 }

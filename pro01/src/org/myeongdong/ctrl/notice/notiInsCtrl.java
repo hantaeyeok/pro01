@@ -1,4 +1,4 @@
-package org.myeongdong.ctrl;
+package org.myeongdong.ctrl.notice;
 
 import java.io.IOException;
 

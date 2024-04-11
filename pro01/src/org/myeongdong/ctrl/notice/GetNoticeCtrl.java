@@ -1,4 +1,4 @@
-package org.myeongdong.ctrl;
+package org.myeongdong.ctrl.notice;
 
 import java.io.IOException;
 
@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.myeongdong.dao.NoticeDAO;
 import org.myeongdong.dto.Notice;
 
-@WebServlet("/GetNotice2.do")
-public class GetNoticeCtrl2 extends HttpServlet {
+@WebServlet("/GetNotice.do")
+public class GetNoticeCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public GetNoticeCtrl2() {
+    public GetNoticeCtrl() {
         super();
     }
 
@@ -28,7 +28,7 @@ public class GetNoticeCtrl2 extends HttpServlet {
 		int no = Integer.parseInt(request.getParameter("no"));
 		
 		NoticeDAO dao = new NoticeDAO();
-		Notice noti = dao.getNotice2(no);
+		Notice noti = dao.getNotice(no);
 		
 		request.setAttribute("noti", noti);
 		RequestDispatcher view = request.getRequestDispatcher("/notice/getNotice.jsp");

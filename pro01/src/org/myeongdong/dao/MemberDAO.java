@@ -3,6 +3,7 @@ package org.myeongdong.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,6 @@ public class MemberDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	//관리자는 회원정보를 봐야함 회원리스트
 	public List<Member> getMemberList(){
 		List<Member> memList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
@@ -23,13 +23,11 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(SqlLang.SELECT_ALL_MEMBER);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				Member mem = new Member(
-						rs.getString("id"),
+				Member mem = new Member(rs.getString("id"),
 						rs.getString("pw"),
 						rs.getString("name"),
 						rs.getString("email"),
-						rs.getString("tel")
-						);
+						rs.getString("tel"));
 				memList.add(mem);
 			}
 		} catch(Exception e){
@@ -40,11 +38,9 @@ public class MemberDAO {
 		return memList;
 	}
 	
-	//회원 id 호출
 	public Member getMember(String id) {
 		Member mem = new Member();
 		OracleDB oracle = new OracleDB();
-		
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_ONE_MEMBER);
@@ -65,7 +61,6 @@ public class MemberDAO {
 		return mem;
 	}
 	
-	//회원관리 cㅊ추가
 	public int join(Member mem) {
 		int cnt = 0;
 		OracleDB oracle = new OracleDB();
@@ -86,7 +81,6 @@ public class MemberDAO {
 		return cnt;
 	}
 	
-	//자기 정보 수정
 	public int upMember(Member mem) {
 		int cnt = 0;
 		OracleDB oracle = new OracleDB();
@@ -98,7 +92,6 @@ public class MemberDAO {
 			pstmt.setString(3, mem.getEmail());
 			pstmt.setString(4, mem.getTel());
 			pstmt.setString(5, mem.getId());
-			
 			cnt = pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -108,7 +101,6 @@ public class MemberDAO {
 		return cnt;
 	}
 	
-	//회원 정보 삭제
 	public int memberOut(String id) {
 		int cnt = 0;
 		OracleDB oracle = new OracleDB();
@@ -123,8 +115,54 @@ public class MemberDAO {
 			oracle.close(con, pstmt);
 		}
 		return cnt;
+	}
 
+	public boolean idCheck(String id) {
+		boolean ck = false;
+		OracleDB oracle = new OracleDB();
+		try {
+			con = oracle.connect();
+			pstmt = con.prepareStatement(SqlLang.SELECT_ONE_MEMBER);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				ck = true;
+			} else {
+				ck = false;
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			oracle.close(con, pstmt, rs);
+		}
+		return ck;
 	}
 	
-	
+	public class ShopDAO{
+		private PreparedStatement pstmt = null;
+		private ResultSet rs = null;
+	public ShopMember selectMember(Connection con, String memberID) {
+		ShopMember sm = null;
+		
+		try {
+			String sql = "SELECT * FROM SHOP_MEMBER WHERE MEMBER_ID=?";
+			pstmt = con.prepareStatement(sql);
+			
+			if(rs.next()) {
+				String id = rs.getString("MEMBER_ID");
+				String pw = rs.getString("MEMBER_PW");
+				String phone = rs.getString("PHONE");
+				String gender = rs.getString("성별");
+				
+				sm = new ShopMember(id,pw,phone,gender);
+			} 
+		}catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return sm;
+		
+		}
+	}
+
 }

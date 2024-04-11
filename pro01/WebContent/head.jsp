@@ -6,6 +6,7 @@
 <script src="${ipath }/js/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet" href="${ipath }/css/bootstrap.min.css" />
 <script src="${ipath }/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="subject" content="명동 소개(myeongdong Intro)"/>
 <meta name="description" content="명동, 관광, 쇼핑, 숙박, 맛집" />

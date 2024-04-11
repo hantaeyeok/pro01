@@ -27,10 +27,9 @@
 		<div style="width:1400px; margin:0 auto;">${msg }</div>
 		</c:if>
 		<div style="width:1400px; margin:0 auto;">
-			<h3 class="page_title">로그인</h3>
-			<form action="${path0 }/LoginPro.do" method="post">
+			<h3 class="page_title"><i class="fas fa-walking fa-fw"></i>로그인</h3>
+			<form action="${path0 }/LogInPro.do" method="post">
 				<table class="table">
-				
 					<tbody>
 						<tr>
 							<th><label for="id">아이디</label></th>

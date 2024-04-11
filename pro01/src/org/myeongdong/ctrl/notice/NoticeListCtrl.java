@@ -1,7 +1,10 @@
-package org.myeongdong.ctrl;
+package org.myeongdong.ctrl.notice;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,12 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.myeongdong.dao.NoticeDAO;
+import org.myeongdong.dto.Notice;
 
-@WebServlet("/DelNotice.do")
-public class DelNoticeCtrl extends HttpServlet {
+@WebServlet("/NotiList.do")
+public class NoticeListCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public DelNoticeCtrl() {
+    public NoticeListCtrl() {
         super();
     }
 
@@ -23,16 +27,12 @@ public class DelNoticeCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		int no = Integer.parseInt(request.getParameter("no"));
-		
 		NoticeDAO dao = new NoticeDAO();
-		int cnt = dao.delNotice(no);
-		
-		if(cnt>0) {
-			response.sendRedirect("/pro01/NotiList.do");
-		} else {
-			response.sendRedirect("/pro01/GetNotice2.do?no="+no);
-		}
+		List<Notice> notiList = new ArrayList<>();
+		notiList = dao.getNoticeList();
+		request.setAttribute("notiList", notiList);		
+		RequestDispatcher view = request.getRequestDispatcher("/notice/noticeList.jsp");
+		view.forward(request, response);
 	}
 
 }

@@ -1,8 +1,6 @@
-package org.myeongdong.ctrl;
+package org.myeongdong.ctrl.member;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.myeongdong.dao.NoticeDAO;
-import org.myeongdong.dto.Notice;
+import org.myeongdong.dao.MemberDAO;
+import org.myeongdong.dto.Member;
 
-@WebServlet("/NotiList.do")
-public class NoticeListCtrl extends HttpServlet {
+@WebServlet("/EditMember.do")
+public class EditMemberCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public NoticeListCtrl() {
+    public EditMemberCtrl() {
         super();
     }
 
@@ -27,11 +25,12 @@ public class NoticeListCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		NoticeDAO dao = new NoticeDAO();
-		List<Notice> notiList = new ArrayList<>();
-		notiList = dao.getNoticeList();
-		request.setAttribute("notiList", notiList);		
-		RequestDispatcher view = request.getRequestDispatcher("/notice/noticeList.jsp");
+		String id = request.getParameter("id");
+		MemberDAO dao = new MemberDAO();
+		Member mem = dao.getMember(id);
+		
+		request.setAttribute("mem", mem);
+		RequestDispatcher view = request.getRequestDispatcher("/member/memberInfo.jsp");
 		view.forward(request, response);
 	}
 

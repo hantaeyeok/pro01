@@ -19,13 +19,13 @@ create table notice (no int primary key, title varchar(50) not null, content var
 create sequence nseq start with 1 increment by 1;
 select * from notice;
 -- member
-create table member(id varchar(12) primary key, pw varchar(12) not null, name varchar(20) not null, tel varchar(20) not null);
-
+create table member(id varchar(12) primary key, pw varchar(12) not null, email varchar(50),name varchar(20) not null, tel varchar(20) not null);
+drop table member;
 -- qna
 create table qna(no int primary key, plevel varchar(50), parno int, title varchar(50), content varchar(4000), resdate TIMESTAMP default sysdate, visited int, aid varchar(20));
 
 alter table qna add constraint aidfkey foreign key (aid) references member(id);
-
+drop table qna;
 
 -- traffic bus
 

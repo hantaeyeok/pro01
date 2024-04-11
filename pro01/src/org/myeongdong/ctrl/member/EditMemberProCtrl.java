@@ -1,4 +1,4 @@
-package org.myeongdong.ctrl;
+package org.myeongdong.ctrl.member;
 
 import java.io.IOException;
 
@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.myeongdong.dao.NoticeDAO;
-import org.myeongdong.dto.Notice;
+import org.myeongdong.dao.MemberDAO;
+import org.myeongdong.dto.Member;
 
-@WebServlet("/EditProNotice.do")
-public class EditProNoticeCtrl extends HttpServlet {
+@WebServlet("/EditMemberPro.do")
+public class EditMemberProCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public EditProNoticeCtrl() {
+    public EditMemberProCtrl() {
         super();
     }
 
@@ -23,19 +23,20 @@ public class EditProNoticeCtrl extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		String id = request.getParameter("id");
+		Member mem = new Member(request.getParameter("id"),
+				request.getParameter("pw"),
+				request.getParameter("name"),
+				request.getParameter("email"),
+				request.getParameter("tel"));
 		
-		Notice noti = new Notice();
-		noti.setNo(Integer.parseInt(request.getParameter("no")));
-		noti.setTitle(request.getParameter("title"));
-		noti.setContent(request.getParameter("content"));
-		
-		NoticeDAO dao = new NoticeDAO();
-		int cnt = dao.editProNotice(noti);
-		
+		MemberDAO dao = new MemberDAO();
+		int cnt = dao.upMember(mem);
 		if(cnt>0) {
-			response.sendRedirect("/pro01/NotiList.do");
+			response.sendRedirect("/pro01");
 		} else {
-			response.sendRedirect("/pro01/EditNotice.do?no="+noti.getNo());
+			response.sendRedirect("/EditMember.do?id="+id);
 		}
 	}
+
 }
