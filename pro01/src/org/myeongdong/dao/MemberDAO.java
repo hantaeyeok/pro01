@@ -138,31 +138,6 @@ public class MemberDAO {
 		return ck;
 	}
 	
-	public class ShopDAO{
-		private PreparedStatement pstmt = null;
-		private ResultSet rs = null;
-	public ShopMember selectMember(Connection con, String memberID) {
-		ShopMember sm = null;
-		
-		try {
-			String sql = "SELECT * FROM SHOP_MEMBER WHERE MEMBER_ID=?";
-			pstmt = con.prepareStatement(sql);
-			
-			if(rs.next()) {
-				String id = rs.getString("MEMBER_ID");
-				String pw = rs.getString("MEMBER_PW");
-				String phone = rs.getString("PHONE");
-				String gender = rs.getString("성별");
-				
-				sm = new ShopMember(id,pw,phone,gender);
-			} 
-		}catch (SQLException e) {
-				e.printStackTrace();
-			}
-			
-			return sm;
-		
-		}
-	}
+	
 
 }

@@ -18,3 +18,5 @@
 <meta property="og:description" content="명동, 관광, 쇼핑, 숙박, 맛집" />
 <meta property="og:image" content="${ipath }/images/site.png" />
 <meta property="og:url" content="http://localhost:8091" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR" rel="stylesheet">
+<link rel="stylesheet" href="${ipath }/css/common.css" />

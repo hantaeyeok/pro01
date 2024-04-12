@@ -30,8 +30,8 @@
 		</script>
 		<br><br>
 		<div id="copyright">
-			<p class="addr">(우)에시예시예시08611 서울특별시 금천구 시흥대로73길 70 금천구 가산동 소개, 대표전화 : 02-2627-2114(120 다산콜센터로연결)</p>
-			<p class="copy">에시예시예시COPYRIGHT(C) SEOUL GASAN INTRO. ALL RIGHTS RESERVED.</p>
+			<p class="addr">(우)08611 서울특별시 금천구 시흥대로73길 70 금천구 가산동 소개, 대표전화 : 02-2627-2114(120 다산콜센터로연결)</p>
+			<p class="copy">COPYRIGHT(C) SEOUL GASAN INTRO. ALL RIGHTS RESERVED.</p>
 		</div>
 	</div> 
 </footer>

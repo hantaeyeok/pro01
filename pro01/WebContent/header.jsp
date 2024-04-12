@@ -5,11 +5,14 @@
 <c:set var="hpath" value="<%=request.getContextPath() %>" />
 <header>
 	<div class="logo_wrap">
-		<a href="/pro01"><img src="${hpath }/images/logo.png" alt="명동 로고" /></a>
+		<a href="/pro01"><img src="${hpath }/images/logo.png" alt="가산동 로고" /></a>
 	</div>
 	<div id="tnb" style="height:100px; line-height:2rem; padding-top:1rem">
 		<c:if test="${not empty sid }">
 		<h2 style="text-align:center;">${sname } 님 환영합니다.</h2>
+		</c:if>
+		<c:if test="${empty sid }">
+		<h2 style="text-align:center;">모든 서비스를 활용시 로그인 요망</h2>
 		</c:if>
 	</div>
 	<nav id="gnb">
@@ -44,7 +47,7 @@
 			<li class="item">
 				<a href="" class="dp1">이용안내</a>
 				<ul class="sub_menu">
-					<li><a href="${hpath }/tour/traffic.jsp">교통편 안내</a></li>
+					<li><a href="${hpath }/GetTrafficList.do">교통편 안내</a></li>
 					<li><a href="${hpath }/tour/building.jsp">주요 빌딩</a></li>
 					<li><a href="${hpath }/tour/association.jsp">주요 협회 단체</a></li>
 					<li><a href="${hpath }/tour/rest.jsp">맛집 안내</a></li>
@@ -56,7 +59,7 @@
 				<ul class="sub_menu">
 					<li><a href="${hpath }/NotiList.do">공지사항</a></li>
 					<li><a href="">자료실</a></li>
-					<li><a href="">묻고답하기</a></li>
+					<li><a href="${hpath }/GetQnaList.do">묻고답하기</a></li>
 				</ul>
 			</li>
 		</ul>
