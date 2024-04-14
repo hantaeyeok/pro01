@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+D:\hty\pro01\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3118887553.index
+3041394692.index
+1064917795.index
+1865549188.index
+2543190441.index
+615187540.index
