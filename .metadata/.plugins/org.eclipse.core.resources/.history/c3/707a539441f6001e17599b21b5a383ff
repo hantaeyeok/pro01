@@ -1,0 +1,36 @@
+package org.myeongdong.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.myeongdong.dto.Member;
+import org.myeongdong.dto.Notice;
+
+public class MemberDAO {
+	//관리자는 회원정보를 봐야함
+	public List<Member> getMemberList(){
+		List<Member> memList = new ArrayList<>();
+		OracleDB oracle = new OracleDB();
+		try {
+			con = oracle.connect();
+			pstmt = con.prepareStatement(SqlLang.SELECT_ALL_MEMBER);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Member mem = new Member(
+						rs.getString("id"),
+						rs.getString("pw"),
+						rs.getString("name"),
+						rs.getString("resdate"),
+						rs.getString("visited")
+						
+						);
+				memList.add(noti);
+			}
+		} catch(Exception e){
+			e.printStackTrace();
+		} finally {
+			oracle.close(con, pstmt, rs);
+		}
+		return memList;
+	}
+}

@@ -29,6 +29,7 @@ select * from (select * from qna order by parno desc, plevel asc) where rownum<=
 -- 같은 경우은 질문부터 출력될 수 있도록 plevel의 오름차순으로 정렬하도록 한다.
 select * from qna order by parno desc, plevel asc;
 
+select sequnsce qseq;
 -- 질문 등록
 insert into qna values(qseq.nextval,1,null,'질문5','질문5의 내용임',default,0,'kkt');
 update qna set parno=qseq.currval 

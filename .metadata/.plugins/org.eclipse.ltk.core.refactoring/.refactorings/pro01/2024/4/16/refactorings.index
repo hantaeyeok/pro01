@@ -1,0 +1,12 @@
+1713140282628	Rename package 'org.gasan.ctrl'
+1713140289362	Rename package 'org.gasan.ctrl.admin'
+1713140297168	Copy package
+1713140315230	Rename package 'org.gasan.ctrl.member'
+1713140320209	Rename package 'org.gasan.ctrl.qna'
+1713140325442	Rename package 'org.gasan.ctrl.tour'
+1713140332243	Rename package 'org.gasan.dao'
+1713140337671	Rename package 'org.gasan.dto'
+1713140343589	Rename package 'org.gasan.test'
+1713140386957	Copy packages
+1713140397713	Delete elements
+1713150727764	Rename compilation unit 'notiInsCtrl.java'

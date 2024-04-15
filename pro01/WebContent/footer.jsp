@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-<c:set var="fpath" value="<%=request.getContextPath() %>" />
-<hr>    
+<c:set var="fpath" value="<%=request.getContextPath() %>" />   
 <footer>
 	<div class="ft_wrap">
 		<nav id="fnb">
@@ -15,11 +14,13 @@
 		<div id="loc">
 			<select name="sel" id="sel" onchange="locate()">
 				<option value="">해당 관광서</option>
-				<option value="https://www.geumcheon.go.kr/portal/contents.do?key=651">가산동주민센터</option>
-				<option value="https://www.smpa.go.kr/user/nd19306.do">가산파출소</option>
-				<option value="https://www.life114.co.kr/html/board/view.asp?M_SEQ=1877802#google_vignette">서울가산디지털우체국</option>
+				<option value="https://www.junggu.seoul.kr/dong/myeong/main.do">명동주민센터</option>
+				<option value="https://map.naver.com/p/search/%EB%AA%85%EB%8F%99%ED%8C%8C%EC%B6%9C%EC%86%8C/place/18039864?placePath=?entry=pll&from=nx&fromNxList=true&searchType=place&c=15.00,0,0,0,dh">명동파출소</option>
+				<option value="https://www.koreapost.go.kr/100/index.do">서울중앙우체국</option>
 			</select>
 		</div>
+		<!-- locate(): 이 함수는 <select> 요소에서 옵션을 선택했을 때 실행
+		선택된 값이 비어 있지 않으면, 새 창을 열고 해당 URL로 이동 -->
 		<script>
 		function locate(){
 			var sel = document.getElementById("sel");
@@ -30,8 +31,8 @@
 		</script>
 		<br><br>
 		<div id="copyright">
-			<p class="addr">(우)08611 서울특별시 금천구 시흥대로73길 70 금천구 가산동 소개, 대표전화 : 02-2627-2114(120 다산콜센터로연결)</p>
-			<p class="copy">COPYRIGHT(C) SEOUL GASAN INTRO. ALL RIGHTS RESERVED.</p>
+			<p class="addr">(우) 04629 서울시 중구 퇴계로20길 3 (남산동2가 9-6)</p>
+			<p class="copy">COPYRIGHT(C) SEOUL Myeong-dong INTRO. ALL RIGHTS RESERVED.</p>
 		</div>
 	</div> 
 </footer>
