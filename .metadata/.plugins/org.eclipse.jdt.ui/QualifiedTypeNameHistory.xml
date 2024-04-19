@@ -6,8 +6,13 @@
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="org.gasan.dto.Notice"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.gasan.dto.Member"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.md.dao.NoticeDAO"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.md.dto.Notice"/>
+    <fullyQualifiedTypeName name="org.md.dao.QnaDAO"/>
+    <fullyQualifiedTypeName name="org.md.dto.Qna"/>
 </qualifiedTypeNameHistroy>

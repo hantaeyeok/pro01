@@ -10,7 +10,7 @@
 		<a href="/pro01"><img src="${hpath }/images/logo.png" alt="명동 로고" /></a>
 	</div>
 	<!-- tnb : 로그인, 회원가입, 로그아웃 메뉴 포함 Top Navigation Bar -->
-	<nav id="gnb">
+	<nav id="gnb" >
 	<!-- gnb  -->
 		<ul class="">
 			<li class="item" >

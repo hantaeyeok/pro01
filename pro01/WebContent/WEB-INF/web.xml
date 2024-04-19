@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>pro01</display-name>
-<!--    <welcome-file-list>
+  <display-name>pro001</display-name>
+  <!-- <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -9,15 +9,18 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list> -->
+  
+<!--  web.xml 로 서버 실행시 메인페이지를 org.md.ctrl.Main의 주소로 변경하는 구문 -->
   <servlet>
   	<servlet-name>pro01</servlet-name>
-  	<servlet-class>org.gasan.ctrl.Main</servlet-class>
+  	<servlet-class>org.md.ctrl.Main</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>pro01</servlet-name>
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
+<!--  WEB-INF 안의 경우 보완때문에 아래 것들을 뚫어주어야함. -->
+   <servlet-mapping>
   	<servlet-name>default</servlet-name>
   	<url-pattern>*.js</url-pattern>
   	<url-pattern>*.css</url-pattern>
@@ -32,7 +35,8 @@
   	<url-pattern>*.wav</url-pattern>
   	<url-pattern>*.ogg</url-pattern>
   </servlet-mapping>
-  <filter>
+  <!--  UTF-8 encoding filter 설정! -->
+    <filter>
   	<filter-name>SetCharEncoding</filter-name>
   	<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
   	<init-param>
