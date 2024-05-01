@@ -14,8 +14,8 @@ public interface SqlLang {
 	
 	String SELECT_ALL_MEMBER = "select * from member order by id";
 	String SELECT_ONE_MEMBER = "select * from member where id=?";
-	String INS_MEMBER = "insert into member values(?,?,?,?,?)";
-	String UPD_MEMBER = "update member set pw=?,name=?,email=?,tel=? where id=?";
+	String INS_MEMBER = "insert into member values(?,?,?,?,?,?,?)";
+	String UPD_MEMBER = "update member set pw=?,name=?,email=?,tel=?,addr=?,postcode=? where id=?";
 	String DEL_MEMBER = "delete from member where id=?";
 	
 	String SELECT_ALL_QNA = "select * from qna order by parno desc, plevel asc";

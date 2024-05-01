@@ -1,7 +1,14 @@
 package org.md.ctrl.member;
 
 import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.md.dao.MemberDAO;
 import org.md.dto.Member;
+import org.md.util.AES256;
 
 @WebServlet("/EditMember.do")
 public class EditMemberCtrl extends HttpServlet {
@@ -29,9 +37,21 @@ public class EditMemberCtrl extends HttpServlet {
 		MemberDAO dao = new MemberDAO();
 		Member mem = dao.getMember(id);
 		
+		String key = "%02x";
+		
+		try {
+			mem.setPw(AES256.decryptAES256(mem.getPw(), key));
+		} catch (InvalidKeyException | NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeySpecException
+				| InvalidAlgorithmParameterException | BadPaddingException | IllegalBlockSizeException e) {
+			e.printStackTrace();
+		}
+		
+		
 		request.setAttribute("mem", mem);
 		RequestDispatcher view = request.getRequestDispatcher("/member/memberInfo.jsp");
 		view.forward(request, response);
+		
+	
 	}
 
 }
